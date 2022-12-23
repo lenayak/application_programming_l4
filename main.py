@@ -46,3 +46,20 @@ def count_of_words(datafraime: pd.DataFrame, col: str) -> list:
         text = text[col]
         words = text.split()
         count_words.append(len(words))
+    return count_words
+
+
+def cleanwords(words: str) -> str:
+    """returns a list of pure words"""
+    words_result = list()
+    for i in range(0, len(words)):
+        words[i] = words[i].strip()
+        words[i] = words[i].lower()
+        if words[i] != " ":
+            words_result.append(re.sub("[^абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \n]", "", words[i]))
+    return words_result
+
+
+def pos(word, morth=pymorphy2.MorphAnalyzer()):
+    "return a likely part of speech for the *word*."""
+    return morth.parse(word)[0].tag.POS
