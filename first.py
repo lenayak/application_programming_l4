@@ -1,6 +1,7 @@
 import os
 import csv
 
+
 def write_as_csv(path: str, path_to_files: str) -> None:
     '''Writes path to files in CSV file'''
     with open("annotation.csv", mode="w", encoding="utf-8") as csvfile:

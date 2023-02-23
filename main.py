@@ -84,6 +84,7 @@ def Lemmatize(datafraime: pd.DataFrame, column: str):
     lemmas = cleanwords(lemmas)     
     return lemmas
     
+    
 def LemmalizeClass(datafraime: pd.DataFrame, column: str, mark:str) -> str:
     lemmas = Lemmatize(datafraime, column)
     word_dict = Counter(lemmas)
