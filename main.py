@@ -104,6 +104,7 @@ if __name__ == '__main__':
     columns = ["mark", "review", "num_of_words"]
     dataset_path = get_path_to_dataset()
     dataframe = get_datafraime(dataset_path)
+    dataframe.to_csv(r"dataframe.csv", index=False)
     num_of_words = count_of_words(dataframe, "review")
     dataframe[columns[2]] = pd.Series(num_of_words)
     dataframe[columns[2]] = pd.Series(num_of_words)
